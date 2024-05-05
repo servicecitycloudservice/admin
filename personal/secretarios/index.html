@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Google Fonts - Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <!-- Style -->
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Secretarios</title>
+  </head>
+
+  <body>
+    <!-- NavBar -->
+    <header class="nav-header">
+      <h3 class="logo">Librería de Secretarios</h3>
+
+      <nav class="nav" id="nav">
+        <ul class="nav-list">
+          <li><a href="../../home/index.html">Inicio</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="img-container display-center">
+      <div class="card-2 bg-white display-center">
+        <img
+          class="img"
+          src="https://imgvb.com/images/2024/04/14/0fd46b15c7bd4e0c340b03d009dc863d.jpg"
+          alt="img"
+        />
+      </div>
+    </div>
+
+    <div class="container display-center">
+      <div class="card-2 bg-white display-flex-center">
+        <div class="display-flex-center">
+          <table class="tabla-personas">
+            <!-- ===== ===== ===== Tabla ===== ===== ===== -->
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Apodo</th>
+                <th>Contacto</th>
+                <th>Estado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><a id="btnModal-chapalin">Chapalin</a></td>
+                <td>chapalin</td>
+                <td>No tiene</td>
+                <td class="color-red">Expulsado</td>
+              </tr>
+
+              <tr>
+                <td><a id="btnModal-gabriel">Gabriel</a></td>
+                <td>secre de la 94.C</td>
+                <td>6000-0000</td>
+                <td class="color-red">Expulsado</td>
+              </tr>
+
+              <tr>
+                <td><a id="btnModal-pollito">Pollito</a></td>
+                <td>pollito</td>
+                <td>6000-0000</td>
+                <td>Trabajando con 100.C</td>
+              </tr>
+
+              <tr>
+                <td>
+                  <a href="./lista-secretarios/secre-03.html">Secre #03</a>
+                </td>
+                <td>hueso</td>
+                <td>No tiene</td>
+                <td>Disponible</td>
+              </tr>
+
+              <tr>
+                <td>
+                  <a href="./lista-secretarios/secre-04.html">Secre #04</a>
+                </td>
+                <td>cabeza</td>
+                <td>6000-0000</td>
+                <td>Disponible</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal-Chapalin -->
+    <div id="modal-chapalin" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="cerrarModal('modal-chapalin')">×</span>
+
+        <div class="bg-white">
+          <div class="display-center">
+            <img
+              class="photo"
+              src="https://imgvb.com/images/2024/04/13/7746e725c78090710b699d91db68c562.jpg"
+              alt="personal 1"
+            />
+          </div>
+          <h2 class="text-center color-dark-gray">
+            Nombre: <span>Chapalin</span>
+          </h2>
+          <!-- Editar: Nombre -->
+          <p>Contacto: <a href="http://wa.me/50700000000">No Tiene</a></p>
+          <!-- Editar: Celular o Whatsapp -->
+          <p>Dirección: <span>La Chorrera, Valle Dorado</span></p>
+          <!-- Editar: Direccion -->
+          <p>Estado: <span class="color-red">Expulsado</span></p>
+          <!-- Editar: Estado -->
+          <table class="tabla-personas">
+            <thead>
+              <tr>
+                <th>Fecha</th>
+                <th>Observaciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>2024/04/15</td>
+                <td>
+                  Ha sido expulsado porque se le ha llamado la atencion en 3
+                  ocasiones distintas y no hace caso.
+                </td>
+              </tr>
+              <tr>
+                <td>2024/04/10</td>
+                <td>Discute con los usuarios.</td>
+              </tr>
+              <tr>
+                <td>2024/04/05</td>
+                <td>Sorprendido trabajando sin camisa</td>
+              </tr>
+              <tr>
+                <td>2024/04/01</td>
+                <td>Llamado de atención, uso de aretes.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <!-- Fin Modal -->
+
+    <!-- Modal-Gabriel -->
+    <div id="modal-gabriel" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="cerrarModal('modal-gabriel')">×</span>
+        <div class="bg-white">
+          <div class="display-center">
+            <img
+              class="photo"
+              src="https://imgvb.com/images/2024/04/12/269fd839ae09336950cb2c1936ca48be.jpg"
+              alt="Gabriel.jpg"
+            />
+          </div>
+          <h2 class="text-center color-dark-gray">Nombre: Gabriel</h2>
+          <p>Contacto: <a href="http://wa.me/50700000000">6000-0000</a></p>
+          <p>Dirección: <span>La Chorrera, Montelimar</span></p>
+          <!-- Editar: Direccion -->
+          <p>Estado: <span class="color-red">Expulsado</span></p>
+
+          <table class="tabla-personas">
+            <thead>
+              <tr>
+                <th>Fecha</th>
+                <th>Observaciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>2024/04/15</td>
+                <td>
+                  <p>
+                    Ha sido expulsado porque se le ha llamado la atencion en 3
+                    ocasiones distintas sobre el uso correcto del uniforme y no
+                    hace caso.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <!-- Fin Modal -->
+
+    <!-- Modal-Pollito -->
+    <div id="modal-pollito" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="cerrarModal('modal-pollito')">×</span>
+        <div class="bg-white">
+          <div class="display-center">
+            <img
+              class="photo"
+              src="https://imgvb.com/images/2024/04/12/244210a12527bbbd80df72f6028e0d00.jpg"
+              alt="img"
+            />
+          </div>
+          <h2 class="text-center color-dark-gray">Nombre: Pollito</h2>
+          <p>Contacto: <a href="http://wa.me/50700000000">6000-0000</a></p>
+          <p>Dirección: <span>La Chorrera, La Mitra</span></p>
+          <!-- Editar: Direccion -->
+          <p>Estado: Trabajando con 100.C</p>
+          <table class="tabla-personas">
+            <thead>
+              <tr>
+                <th>Fecha</th>
+                <th>Observaciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>2024/04/15</td>
+                <td>
+                  <p>
+                    Ha sido expulsado porque se le ha llamado la atencion en 3
+                    ocasiones distintas sobre el uso correcto del uniforme y no
+                    hace caso.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <!-- Fin Modal -->
+
+    <script src="script.js"></script>
+  </body>
+
+  <footer class="display-flex-center">
+    <p>©2024 Cloud Service</p>
+  </footer>
+</html>

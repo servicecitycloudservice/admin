@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tablero 02</title>
+
+    <!-- Google Fonts - Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+
+    <!-- Style -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- NavBar Header -->
+    <header class="nav-header">
+      <h3 class="logo">Personal Administrativo</h3>
+
+      <section class="dropdown-section">
+        <!-- Dropdown - Tableros -->
+        <div class="dropdown">
+          <a class="button dropdown-toggle" data-bs-toggle="dropdown">
+            Tableros
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a class="dropdown-item" href="index.html"
+                >La Chorrera/Autopista (activo)</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="../../panama/1-lunes/index.html"
+                >Panamá/Autopista (activo)</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="../../camino/1-lunes/index.html"
+                >Panamá/Camino (activo)</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="#">Reglas Generales (inactivo)</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Dropdown - Personal -->
+        <div class="dropdown">
+          <a
+            class="button btn-success dropdown-toggle"
+            data-bs-toggle="dropdown"
+          >
+            Personal
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a
+                class="dropdown-item"
+                href="../../../personal/administrativo/index.html"
+                >Administrativo, Fiscales y Chequeadores</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item"
+                href="../../../personal/conductores/index.html"
+                >Conductores</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item"
+                href="../../../personal/secretarios/index.html"
+                >Secretarios</a
+              >
+            </li>
+          </ul>
+        </div>
+      </section>
+    </header>
+
+    <!-- Sticky Form -->
+    <section class="title">
+      <div class="title-container display-center">
+        <!-- Form -->
+        <div>
+          <form class="row g-3 needs-validation" novalidate>
+            <div class="display-flex-center">
+              <!-- Input #unidad-->
+              <input
+                type="text"
+                class="form-control"
+                id="validationCustom01"
+                placeholder="Unidad"
+                required
+              />
+
+              <!-- Input Select-->
+              <div class="select-input">
+                <select
+                  class="form-select estado-select"
+                  id="validationCustom04"
+                  required
+                >
+                  <option selected disabled value="">Seleccionar</option>
+                  <option>---</option>
+                  <option>Apoyo</option>
+                  <option>Taller</option>
+                </select>
+              </div>
+
+              <!-- Input Button -->
+              <div class="display-flex-center">
+                <button
+                  class="button submit-btn"
+                  type="submit"
+                  id="submitForm-btn"
+                >
+                  Anotar
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <!-- Pagination -->
+        <div>
+          <div class="pagination display-flex-center">
+            <a id="scrollToBottomBtn" class="bi bi-arrow-down-square btn-arrow">
+            </a>
+            <ul class="display-flex-center">
+              <li class="pageNumber prev-page">
+                <a href="#" id="prevPage">< </a>
+              </li>
+              <li class="pageNumber next-page">
+                <a href="#" id="nextPage"> ></a>
+              </li>
+            </ul>
+
+            <select
+              class="form-select"
+              id="itemsPerPageSelect"
+              aria-label="Default select example"
+            >
+              <option selected>por paginas</option>
+              <option value="10" class="text-center">10</option>
+              <option value="25" class="text-center">25</option>
+              <option value="50" class="text-center">50</option>
+              <option value="100" class="text-center">100</option>
+            </select>
+            <a id="scrollToTopBtn" class="bi bi-arrow-up-square btn-arrow"> </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="title-section">
+      <h1>Tablero de Chorrera (Autopista)</h1>
+    </div>
+
+    <section class="week-days-buttons display-flex-center">
+      <a class="button" href="../1-lunes/index.html">L</a>
+      <a class="button" href="../2-martes/index.html">M</a>
+      <a class="button" href="../3-miercoles/index.html">M</a>
+      <a class="button active" href="../4-jueves/index.html">J</a>
+      <a class="button" href="../5-viernes/index.html">V</a>
+      <a class="button" href="../6-sabado/index.html">S</a>
+      <a class="button" href="../7-domingo/index.html">D</a>
+    </section>
+
+    <!-- Imagen Box -->
+    <!-- <div class="img-container display-center">
+      <div class="card-2 bg-white">
+        <img
+          class="img"
+          src="https://imgvb.com/images/2024/04/14/f6545a9094c051ec5430f5f900af8d5b.jpg"
+          alt="img"
+        />
+      </div>
+    </div> -->
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Main Content - Container -->
+      <div class="main-container">
+        <!-- Table -->
+        <table class="table table-striped">
+          <!-- Table - Head -->
+          <thead>
+            <tr>
+              <th class="text-center">#</th>
+              <th class="display-flex-center hour-column">Hora</th>
+              <th class="text-center">Unidad</th>
+              <th class="text-center">Estado</th>
+              <th class="text-center select-column">Cambiar Estado</th>
+            </tr>
+          </thead>
+
+          <!-- Table Body -->
+          <tbody class="table-body" id="tableroChorrera">
+            <tr>
+              <td class="text-center">-</td>
+              <td class="text-center">3:15 a.m.</td>
+              <td class="text-center unidad-cell">Jueves</td>
+              <td class="text-center">Cargando...</td>
+              <td>- - -</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+
+    <!-- Delete Board & Download to PDF Buttons -->
+    <section class="display-flex-center">
+      <!-- Delete Board Button -->
+      <div class="delete-board display-flex-center">
+        <button class="button" id="delete-board-button">
+          <label>Borrar tablero</label>
+        </button>
+      </div>
+      <!-- Button - Download to Excel -->
+      <button class="button" id="downloadToExcel">
+        <label for="">Descargar a Excel</label
+        ><i class="fa fa-file-excel-o" aria-hidden="true"></i>
+      </button>
+    </section>
+
+    <!-- Delete Board Confirmation Modal -->
+    <div class="modal card display-center" id="confirmationModal">
+      <h1 class="modal-header modal-title">Modal de Confirmación</h1>
+      <div class="modal-content">
+        <label> ¿Estás seguro que deseas borrar todo el tablero? </label>
+      </div>
+      <div class="footer display-flex-center bg-white">
+        <button class="button" id="confirm-delete">Sí, Borrar</button>
+        <button class="button" id="cancel-delete">No borrar, Cerrar</button>
+      </div>
+    </div>
+
+    <!-- Modal de Edición -->
+    <div class="modal" id="modalEdicion" tabindex="-1" hidden>
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Editar Unidad</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <!-- Formulario de Edición -->
+            <form id="edit-form">
+              <div class="mb-3">
+                <label for="edit-unidad-input" class="form-label">Unidad</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="edit-unidad-input"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="edit-estado-select" class="form-label"
+                  >Estado</label
+                >
+                <select class="form-select" id="edit-estado-select" required>
+                  <option value="Lleno">Lleno</option>
+                  <option value="En pesa">En pesa</option>
+                  <option value="A pesa">A pesa</option>
+                  <option value="Activo">Activo</option>
+                  <option value="Pendiente">Pendiente</option>
+                  <option value="Permiso">Permiso</option>
+                  <option value="Apoyo">Apoyo</option>
+                  <option value="Taller">Taller</option>
+                  <option value="X">Revision X</option>
+                  <option value="X X">Revision 2X</option>
+                  <option value="X X X">Revision 3X</option>
+                </select>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Cerrar
+                </button>
+                <button
+                  type="submit"
+                  class="btn btn-primary"
+                  id="save-changes-btn"
+                >
+                  Guardar Cambios
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Librery to generate Excel -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+
+    <!-- Bootstrap & Popper - Script -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+      integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Toastify -->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
+
+    <script type="module" src="script.js"></script>
+  </body>
+
+  <footer class="display-flex-center">
+    <p>©2024 Cloud Service</p>
+  </footer>
+</html>
