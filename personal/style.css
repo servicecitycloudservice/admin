@@ -1,0 +1,117 @@
+* { margin: 0;     padding: 0;     box-sizing: border-box;     font-family: poppins; }
+body { background-color: #ececec; }
+.container { max-width: 800px;    display: grid;    margin: 20px auto; }
+.bg-white { background-color: #fff }
+.bg-img { background-image: url(https://imgvb.com/images/2024/04/12/c6eb370197246320fce67feb4bb14e29.jpg);
+    background-repeat: no-repeat;    background-position: center;    background-size: cover; }
+
+.button { display: inline-block;    padding: .75em 1.5em;    background: #666;    color: #fff;
+    border-radius: .5em;    border: none;    cursor: pointer;    text-decoration: none;    margin: 20px; }
+
+.color-dark-gray { color: #333;}
+.color-dodgerblue { color: dodgerblue;}
+.color-gray { color: #666 }
+.color-red { color: red }
+.color-white { color: #fff; }
+
+.display-center { display: grid;    place-items: center; }
+.display-flex-center { display: flex;    align-items: center;    justify-content: center; }
+
+.fs-xl { font-size: x-large }
+.fs-xxl { font-size: xx-large }
+.img { width: 100%;    border-radius: 5px; }
+.mg-05em {
+    margin: .5em;
+}
+.text-center { text-align: center; }
+.text-nodeco { text-decoration: none; }
+
+/*===== ===== ===== NavBar ===== ===== ===== */
+.nav-header { display: flex;     align-items: center;     justify-content: space-between;
+    padding: 2rem;     background-color: transparent; }
+.nav-header button i { text-decoration: none;     color: #1c1c1c; }
+.nav-header i:hover { color: #ff9900; }
+.logo { max-width: 10rem;     text-align: center;     color: #333; }
+.nav-list { list-style-type: none;     display: flex;     gap: 1rem; }
+.nav-list li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1.2em;
+    font-weight: 500;
+}
+.nav-list a:hover { color: #ff9900; }
+.abrir-menu, .cerrar-menu { display: none; }
+
+/* Links */
+.links a {
+    font-size: 1.2em;
+    font-weight: 500;
+    color: #333;
+    margin: .5em;
+    padding-bottom: .5em;
+}
+
+.links a:hover {
+    color: #ff9900;
+    cursor: pointer;
+}
+
+
+/*===== ===== ===== Card ===== ===== =====*/
+.card {
+    width: 380px;
+    padding: 20px;
+    border: 2px, solid #ccc;
+    border-radius: 10px;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+}
+.card img,
+.photo { width: 300px;     border-radius: 10px; }
+.card h2 { margin-top: auto;     font-size: 20px; }
+.card p { margin-top: 10px;     font-size: 16px;     color: #666; }
+
+.card-2 {
+    max-width: 600px;
+    padding: 20px;
+    border: 2px, solid #ccc;
+    border-radius: 10px;
+    margin: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+
+    border: 1px solid;
+}
+/*===== ===== ===== Card ===== ===== =====*/
+
+
+/* ===== ===== ===== Tabla ===== ===== ===== */
+.tabla-personas tr:nth-child(even) { background-color: #f2f2f2; }
+/* .tabla-personas tr:hover { background-color: #ddd; } */
+
+a { text-decoration: none; cursor: pointer; color: dodgerblue;}
+a:hover { color:  #ff9900;}
+table { border-collapse: collapse; width: 100%;}
+th, td { border: 1px solid #ddd;    padding: 8px;    color: #666;    text-align: center;}
+th { background-color: #f2f2f2; }
+/* ===== ===== ===== Tabla ===== ===== ===== */
+
+
+/*===== ===== ===== Modal ===== ===== =====*/
+/* Estilo base para el modal */
+.modal { display: none;    position: fixed;    z-index: 1;    left: 0;    top: 0;
+    width: 100%;    height: 100%;    overflow: auto;    background-color: rgb(0,0,0);    background-color: rgba(0,0,0,0.1); }
+  
+  /* Estilo para el contenido del modal */
+  .modal-content { background-color: #fefefe;    margin: 15% auto;
+    padding: 20px;    border: 1px solid #888;    width: 80%; }
+  
+  /* Estilo para el botón de cerrar */
+  .close { color: #aaaaaa;    float: right;    font-size: 28px;    font-weight: bold; }
+  .close:hover, .close:focus { color: #000;    text-decoration: none;    cursor: pointer; }
+/*===== ===== ===== Modal ===== ===== =====*/
