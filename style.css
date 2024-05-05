@@ -9,7 +9,7 @@
 }
 
 body {
-    background-color: #ececec;
+    background-color: white;
     height: 100%;
 }
 
@@ -114,11 +114,8 @@ body {
 }
 
 .logo {
-    max-width: 10rem;
-    flex: none;
-    text-align: center;
     color: #333;
-    font-size: 1.25em;
+    font-size: 1em;
     font-weight: 500;
     margin: 1em;
 }
@@ -136,50 +133,10 @@ body {
     background-color: #ececec;
     box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.3);
     margin: 10px;
+    font-size: 10px;
 }
 
-/* 
-@media screen and (max-width: 650px) {
-    .abrir-menu, .cerrar-menu { display: block;     border: 0;
-        font-size: 1.25rem;     background-color: transparent;     cursor: pointer; }
-    .abrir-menu { color: #1c1c1c; }
-    .cerrar-menu { color: #ececec; }
 
-    .nav { opacity: 0;     visibility: hidden;
-        display: flex;
-        flex-direction: column;
-        align-items: end;
-        gap: 1rem;
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        background-color: #333;
-        padding: 2rem;
-        box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .5);
-    }
-    .nav button i { color: #fff; }
-    .nav.visible { opacity: 1;     visibility: visible; }
-    .nav-list { flex-direction: column;     align-items: end; }
-    .nav-list li a { text-decoration: none;     color: #fff;     font-weight: bold; }
-    .nav-list a:hover i:hover { color: #ff9900; }
-} */
-/*===== ===== ===== NavBar ===== ===== ===== */
-/* Links */
-.links a {
-    font-size: 1.2em;
-    font-weight: 500;
-    color: dodgerblue;
-    margin: .5em 2em .5em 2em;
-    text-decoration: none;
-    transition: 2s ease-in-out;
-}
-
-.links a:hover {
-    transition: .3s;
-    color: #ff9900;
-    cursor: pointer;
-}
 
 /* Sticky Form */
 .title {
@@ -463,16 +420,12 @@ ul li.pageNumber.active a {
 
 
 
-/* Botones */
-#delete-board-button {
-    background-color: red;
-}
-
-#downloadToExcel {
-    background-color: green;
+.p-section p {
+    font-size: 12px;
+    margin: 10px;
 }
 
 /* Footer*/
 footer {
-    margin: 0.5em;
+    margin: 1em;
 }
