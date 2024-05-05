@@ -168,7 +168,7 @@ body {
 .title .estado-select {
     color: #333;
     font-size: 15px;
-    padding: 0 30px 0 5px;
+    padding: 0 30px 0 10px;
     width: min-content;
 }
 
@@ -238,7 +238,7 @@ ul li.pageNumber.active a {
 width: min-content;
     font-size: 1em;
     font-weight: 500;
-    padding: 0 30px 5px 5px;
+    padding: 0 30px 5px 10px;
     text-align: start;
 
 }
