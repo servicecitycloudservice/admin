@@ -139,35 +139,8 @@ body {
     box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.3);
     margin: 10px;
     padding: 10px;
+    font-size: 10px;
 }
-
-/* 
-@media screen and (max-width: 650px) {
-    .abrir-menu, .cerrar-menu { display: block;     border: 0;
-        font-size: 1.25rem;     background-color: transparent;     cursor: pointer; }
-    .abrir-menu { color: #1c1c1c; }
-    .cerrar-menu { color: #ececec; }
-
-    .nav { opacity: 0;     visibility: hidden;
-        display: flex;
-        flex-direction: column;
-        align-items: end;
-        gap: 1rem;
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        background-color: #333;
-        padding: 2rem;
-        box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .5);
-    }
-    .nav button i { color: #fff; }
-    .nav.visible { opacity: 1;     visibility: visible; }
-    .nav-list { flex-direction: column;     align-items: end; }
-    .nav-list li a { text-decoration: none;     color: #fff;     font-weight: bold; }
-    .nav-list a:hover i:hover { color: #ff9900; }
-} */
-/*===== ===== ===== NavBar ===== ===== ===== */
 
 
 /* Sticky Form */
