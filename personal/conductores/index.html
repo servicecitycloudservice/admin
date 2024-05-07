@@ -28,7 +28,7 @@
     />
 
     <!-- Style -->
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../style.css" />
   </head>
 
   <body>
@@ -43,17 +43,17 @@
           <ul class="dropdown-menu">
             <li>Tablero</li>
             <li>
-              <a class="dropdown-item" href="index.html"
+              <a class="dropdown-item" href="../../tableros/chorrera/1-lunes/index.html"
                 >* en Chorrera -> Autopista</a
               >
             </li>
             <li>
-              <a class="dropdown-item" href="../../panama/1-lunes/index.html"
+              <a class="dropdown-item" href="../../tableros/panama/1-lunes/index.html"
                 >* en Panamá -> Autopista</a
               >
             </li>
             <li>
-              <a class="dropdown-item" href="../../camino/1-lunes/index.html"
+              <a class="dropdown-item" href="../../tableros/camino/1-lunes/index.html"
                 >* en Panamá -> Camino</a
               >
             </li>
@@ -62,21 +62,21 @@
             <li>
               <a
                 class="dropdown-item"
-                href="../../../personal/administrativo/index.html"
+                href="../../personal/administrativo/index.html"
                 >* AFC</a
               >
             </li>
             <li>
               <a
                 class="dropdown-item"
-                href="../../../personal/conductores/index.html"
+                href="../../personal/conductores/index.html"
                 >* Conductores</a
               >
             </li>
             <li>
               <a
                 class="dropdown-item"
-                href="../../../personal/secretarios/index.html"
+                href="../../personal/secretarios/index.html"
                 >* Secretarios</a
               >
             </li>
@@ -183,15 +183,6 @@
               <td class="text-center">Cargando...</td>
               <td>- - -</td>
               <td>- - -</td>
-
-              <th>
-                <button
-                  class="btn btn-danger delete-user-button"
-                  data-id="${childData.id}"
-                >
-                  Eliminar
-                </button>
-              </th>
             </tr>
           </tbody>
         </table>
@@ -235,14 +226,7 @@
           <div class="modal-body">
             <!-- Formulario aquí -->
             <form class="row g-3 needs-validation" id="modalForm" novalidate>
-              <!-- Inputs del formulario -->
-              <input
-                type="text"
-                class="form-control"
-                id="validationCustomUnidadModal"
-                placeholder="Unidad"
-                required
-              />
+              <!-- Input - Nombre -->
               <input
                 type="text"
                 class="form-control"
@@ -250,6 +234,7 @@
                 placeholder="Nombre"
                 required
               />
+                     <!-- Input - Cedula -->
               <input
                 type="text"
                 class="form-control"
@@ -257,6 +242,7 @@
                 placeholder="Cedula"
                 required
               />
+                     <!-- Input - Whatsapp -->
               <input
                 type="text"
                 class="form-control"
@@ -264,6 +250,7 @@
                 placeholder="Whatsapp"
                 required
               />
+                     <!-- Input - Estado -->
               <select
                 class="estado-select sticky-select"
                 id="validationCustomEstadoModal"
@@ -271,7 +258,8 @@
               >
                 <option selected disabled value="">Seleccionar</option>
                 <option>Activo</option>
-                <option>Sin Chofer</option>
+                <option>Sin carro</option>
+                <option>Retirado</option>
               </select>
               <button
                 class="button submit-btn"

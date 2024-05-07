@@ -57,18 +57,6 @@ function mostrarDatos() {
         }">
                             <option value="Activo" ${childData.estado === "Activo" ? "selected" : ""
         }>Activo</option>
-                            <option value="Sin chofer" ${childData.estado === "Sin chofer"
-          ? "selected"
-          : ""
-        }>Sin chofer</option>
-                            <option value="Taller" ${childData.estado === "Taller" ? "selected" : ""
-        }>Taller</option>
-                            <option value="Dañado" ${childData.estado === "Dañado" ? "selected" : ""
-        }>Dañado</option>
-                            <option value="Permiso Disponible" ${childData.estado === "Permiso Disponible"
-          ? "selected"
-          : ""
-        }>Permiso Disponible</option>
         <option value="Suspendido" ${childData.estado === "Suspendido"
           ? "selected"
           : ""
@@ -107,14 +95,13 @@ document.getElementById("modalForm").addEventListener("submit", function (event)
   event.preventDefault(); // Evita que se recargue la página
 
   // Obtener valores de los campos del formulario modal
-  const unidadInput = document.getElementById("validationCustomUnidadModal").value;
   const nombreInput = document.getElementById("validationCustomNombreModal").value;
   const cedulaInput = document.getElementById("validationCustomCedulaModal").value;
   const whatsappInput = document.getElementById("validationCustomWhatsappModal").value;
   const estadoInput = document.getElementById("validationCustomEstadoModal").value;
 
   // Verificar que los campos no estén vacíos
-  if (unidadInput.trim() !== "" && estadoInput.trim() !== "") {
+  if (nombreInput.trim() !== "" && estadoInput.trim() !== "") {
 
     // Obtener la fecha y hora actual en la zona horaria de Panamá
     const now = new Date();
@@ -128,7 +115,6 @@ document.getElementById("modalForm").addEventListener("submit", function (event)
 
     // Crear un nuevo objeto con los datos del formulario modal
     const nuevoRegistro = {
-      unidad: unidadInput,
       nombre: nombreInput,
       cedula: cedulaInput,
       whatsapp: whatsappInput,
