@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tablero 02</title>
+    <title>Librería de Conductores</title>
 
     <!-- Google Fonts - Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -44,17 +44,17 @@
             <li>Tablero</li>
             <li>
               <a class="dropdown-item" href="index.html"
-                >La Chorrera -> Autopista</a
+                >* en Chorrera -> Autopista</a
               >
             </li>
             <li>
               <a class="dropdown-item" href="../../panama/1-lunes/index.html"
-                >Panamá -> Autopista</a
+                >* en Panamá -> Autopista</a
               >
             </li>
             <li>
               <a class="dropdown-item" href="../../camino/1-lunes/index.html"
-                >Panamá -> Camino</a
+                >* en Panamá -> Camino</a
               >
             </li>
 
@@ -63,25 +63,25 @@
               <a
                 class="dropdown-item"
                 href="../../../personal/administrativo/index.html"
-                >AFC</a
+                >* AFC</a
               >
             </li>
             <li>
               <a
                 class="dropdown-item"
                 href="../../../personal/conductores/index.html"
-                >Conductores</a
+                >* Conductores</a
               >
             </li>
             <li>
               <a
                 class="dropdown-item"
                 href="../../../personal/secretarios/index.html"
-                >Secretarios</a
+                >* Secretarios</a
               >
             </li>
             <li>
-              <a class="dropdown-item" href="#">Reglas Generales (inactivo)</a>
+              <a class="dropdown-item" href="#">* Reglas Generales (inactivo)</a>
             </li>
           </ul>
         </div>
@@ -105,19 +105,20 @@
           </ul>
 
           <select class="form-select" id="itemsPerPageSelect">
-            <option selected>Ver por</option>
-            <option value="10" class="text-center">10</option>
-            <option value="25" class="text-center">25</option>
-            <option value="50" class="text-center">50</option>
-            <option value="100" class="text-center">100</option>
+            <option selected>Ver...</option>
+            <option value="10">10</option>
+            <option value="25">25</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
           </select>
           <a id="scrollToTopBtn" class="bi bi-arrow-up-square btn-arrow"> </a>
         </div>
+        <!-- Input-Group -->
         <div class="input-group">
           <input
             type="text"
             class="form-control"
-            placeholder="Buscar por nombre..."
+            placeholder="Nombre"
             id="searchInput"
           />
           <button class="btn bg-green" type="button" id="searchButton">
@@ -162,7 +163,7 @@
           <!-- Table - Head -->
           <thead>
             <tr>
-              <th class="text-center">Unidad</th>
+              <th class="text-center">#</th>
               <th class="text-center">Nombre</th>
               <th class="text-center">Cédula</th>
               <th class="text-center">Whatsapp</th>

@@ -132,9 +132,15 @@ body {
     list-style-type: none;
     display: flex;
     margin: 0;
-    padding: 0;
+ 
 }
-
+.dropdown ul {
+    padding: 0 50px 0 50px;
+}
+.dropdown li {
+    font-weight: 500;
+    text-align: center;
+}
 .dropdown-section .button {
     text-decoration: none;
     color: #1c1c1c;
@@ -199,17 +205,19 @@ body {
 /* Pagination*/
 .pagination {
     padding: 0;
-    margin: -1em 0 -1em 0;
+    margin: -1em 1em -1em 1em;
 }
 
 .pagination ul {
     color: transparent;
+    width: auto;
+    padding: 10px;
+    height: 40px;
+    margin-top: 18px;
 }
 
 ul li {
-    line-height: 40px;
     margin: 5px;
-    margin-top: 18px;
 }
 
 ul li.pageNumber {
@@ -243,17 +251,18 @@ ul li.pageNumber.active a {
 
 .pagination #scrollToBottomBtn,
 #scrollToTopBtn {
-    margin: 20px;
-    color: #1c1c1c;
+    color: #333;
     border: none;
     font-size: 2em;
 }
 
+
 .pagination select {
-    height: 2em;
+    height: 40px;
+    width: fit-content;
     font-size: 1em;
     font-weight: 500;
-    padding: 0 0 0 1em;
+    padding: 0 2em 0 1em;
     text-align: start;
 }
 
@@ -261,8 +270,14 @@ ul li.pageNumber.active a {
     width: 90%;
     margin-bottom: 1em;
 }
-#searchInput, #searchButton {
+#searchInput {
+    width: 100px;
     height: 40px;
+}
+#searchButton {
+    width: auto;
+    height: 40px;
+    padding: 0 10px 0 10px;
 }
 
 /* Middle section */
@@ -270,9 +285,7 @@ ul li.pageNumber.active a {
     padding: 20px;
     margin: 0;
 }
-#middleSection .input-group {
-    width: fit-content;
-}
+
 h1 {
     font-weight: 500;
     font-size: 1.2em;
@@ -421,7 +434,7 @@ a:hover {
 
 table td:nth-child(1),
 table th:nth-child(1) {
-    width: 150px;
+    width: 60px;
 }
 table td:nth-child(2),
 table th:nth-child(2) {

@@ -1,19 +1,18 @@
-import {
-  push,
-  ref,
-  onValue,
-  update,
-  remove
-} from "https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js";
+import { push, ref, onValue } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js";
 
 // Initialize Firebase
 import { getDatabase } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js";
 import { app } from "../../environment/firebaseConfig.js";
+
+// Import Modules
+import { changeSelectEvent } from "../../modules/tabla/changeSelectEvent.js";
+import { deleteRow } from "../../modules/tabla/deleteRow.js";
+
 const database = getDatabase(app);
 const collection = "libreria-de-conductores";
-
 const tabla = document.getElementById("tablero");
-let itemsPerPage = 25; // Número de elementos por página
+
+let itemsPerPage = 10; // Número de elementos por página
 let totalPages;
 let currentPage = 1;
 
@@ -31,12 +30,14 @@ function mostrarDatos() {
     });
 
     // Ordena los datos por la columna "Unidad" de forma descendente
-    data.sort((a, b) => a.unidad.localeCompare(b.unidad));
+    data.sort((a, b) => a.nombre.localeCompare(b.nombre));
 
     // Calcular totalPages
     totalPages = Math.ceil(data.length / itemsPerPage);
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = Math.min(startIndex + itemsPerPage, data.length);
+
+    
 
     // Inicializa el contador de fila
     let filaNumero = startIndex + 1;
@@ -46,7 +47,7 @@ function mostrarDatos() {
       const childData = data[i];
       const row = `
                 <tr>
-                    <td class="text-center">${childData.unidad}</td>
+                    <td class="text-center">${filaNumero++}</td>
                     <td class="text-center">${childData.nombre}</td>
                     <td class="text-center">${childData.cedula}</td>
                     <td class="text-center">${childData.whatsapp}</td>
@@ -95,37 +96,7 @@ function mostrarDatos() {
     // Actualizar la paginación pasando totalPages como argumento
     updatePagination(totalPages);
 
-    //-------------------------------------------------------------
-    // Agregar eventos de escucha a los botones de eliminación después de crear las filas
-    const deleteButtons = document.querySelectorAll(".delete-user-button");
-    deleteButtons.forEach((button) => {
-      button.addEventListener("click", function (event) {
-        const id = event.target.getAttribute("data-id");
-
-        // Mostrar un mensaje de confirmación
-        const confirmarBorrado = confirm("¿Estás seguro que deseas borrar este elemento?");
-
-        // Verificar si se confirmó el borrado
-        if (confirmarBorrado) {
-          // Eliminar el elemento seleccionado
-          remove(ref(database, `${collection}/${id}`))
-            .then(() => {
-              // Mostrar mensaje de éxito
-              console.log("Elemento ha sido borrado exitosamente.");
-              // Actualizar la visualización de los datos
-              mostrarDatos();
-            })
-            .catch((error) => {
-              console.error("Error al borrar el elemento:", error);
-            });
-        } else {
-          // Si se cancela el borrado, mostrar un mensaje de cancelación
-          console.log("Borrado cancelado.");
-        }
-      });
-    });
-
-
+    deleteRow(database, collection);
 
   });
 }
@@ -218,7 +189,7 @@ function findAndSearch() {
 document.getElementById("searchButton").addEventListener("click", findAndSearch);
 
 // Evento para ejecutar la búsqueda cuando se presione Enter en el campo de entrada
-document.getElementById("searchInput").addEventListener("keyup", function(event) {
+document.getElementById("searchInput").addEventListener("keyup", function (event) {
   if (event.key === "Enter") {
     event.preventDefault();
     findAndSearch();
@@ -335,29 +306,6 @@ scrollToTopBtn.addEventListener("click", function () {
   firstRow.scrollIntoView({ behavior: "smooth", block: "start" });
 });
 
-//***-----------------------------------------------------------------------------
-// Evento para actualizar el estado al cambiar el select
-tabla.addEventListener("change", function (event) {
-  if (event.target.classList.contains("estado-select")) {
-    const confirmar = confirm("¿Estás seguro de que deseas cambiar el estado?");
-    if (confirmar) {
-      const id = event.target.getAttribute("data-id");
-      const nuevoEstado = event.target.value;
-
-      update(ref(database, `${collection}/${id}`), { estado: nuevoEstado })
-        .then(() => {
-          console.log("Estado actualizado exitosamente");
-        })
-        .catch((error) => {
-          console.error("Error al actualizar el estado:", error);
-        });
-    } else {
-      // Volver al estado original si se cancela la operación
-      mostrarDatos();
-    }
-  }
-});
-
 //*** --------------------------------------------------
 // Descargar a Excel
 // Función para descargar datos y convertirlos en Excel
@@ -373,8 +321,11 @@ function downloadToExcel() {
     onValue(ref(database, collection), (snapshot) => {
       const data = [];
       snapshot.forEach((childSnapshot) => {
-        data.push({ id: childSnapshot.key, ...childSnapshot.val() });
-      });
+
+    // Filtrar las columnas que deseas incluir en el archivo Excel
+    const { nombre, cedula, whatsapp, estado, hora } = childSnapshot.val();
+    data.push({ nombre, cedula, whatsapp, estado, hora });
+  });
 
       // Convierte los datos a un formato compatible con Excel
       const worksheet = XLSX.utils.json_to_sheet(data);
@@ -404,4 +355,7 @@ onValue(ref(database), (snapshot) => {
   mostrarDatos();
   setTimeout(mostrarDatos, 200);
 });
+
+changeSelectEvent(tabla, database, collection);
+
 console.log(database);
