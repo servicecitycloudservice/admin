@@ -165,9 +165,9 @@ body {
 
 .title input,
 .title select {
-    width: 180px;
+    width: 160px;
     height: 40px;
-    margin: 0 5px 0 5px;
+    margin: 0 1px 0 1px;
     border: 1px solid #333;
     border-radius: 5px;
     text-align: center;
@@ -182,7 +182,7 @@ body {
 }
 
 .title button {
-    margin: 5px;
+    margin: 1px;
     padding: 0;
     width: 80px;
     height: 40px;
