@@ -208,7 +208,6 @@ body {
 .pagination {
     padding: 0;
     margin: -1em 1em -1em 1em;
-    border: 1px solid red;
 }
 
 .pagination ul {
