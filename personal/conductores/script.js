@@ -1,8 +1,4 @@
-import {
-  push,
-  ref,
-  onValue,
-} from "https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js";
+import { push, ref, onValue } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js";
 
 // Initialize Firebase
 import { getDatabase } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js";
@@ -41,6 +37,8 @@ function mostrarDatos() {
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = Math.min(startIndex + itemsPerPage, data.length);
 
+    
+
     // Inicializa el contador de fila
     let filaNumero = startIndex + 1;
 
@@ -48,25 +46,38 @@ function mostrarDatos() {
     for (let i = startIndex; i < endIndex; i++) {
       const childData = data[i];
       const row = `
-<tr>
-  <td class="text-center">${filaNumero++}</td>
-  <td class="text-center">${childData.nombre}</td>
-  <td class="text-center">${childData.cedula}</td>
-  <td class="text-center">${childData.whatsapp}</td>
-  <td class="text-center">${childData.estado}</td>
-  <td>
-    <select class="form-select estado-select" data-id="${childData.id}">
-      <option value="Activo" ${childData.estado === "Activo" ? "selected" : ""}>Activo</option>
-      <option value="Activo sin carro" ${childData.estado === "Activo sin carro" ? "selected" : ""}>Activo sin carro</option>
-      <option value="Suspendido" ${childData.estado === "Suspendido" ? "selected" : ""}>Suspendido</option>
-      <option value="Expulsado" ${childData.estado === "Expulsado" ? "selected" : ""}>Expulsado</option>
-    </select>
-  </td>
-  <td class="text-center width-auto">${childData.hora}</td>
-  <td>
-    <button class="btn btn-danger delete-user-button" data-id="${childData.id}">Eliminar</button>
-  </td>
-</tr>
+                <tr>
+                    <td class="text-center">${filaNumero++}</td>
+                    <td class="text-center">${childData.nombre}</td>
+                    <td class="text-center">${childData.cedula}</td>
+                    <td class="text-center">${childData.whatsapp}</td>
+                    <td class="text-center">${childData.estado}</td>
+                    <td>
+                        <select class="form-select estado-select" data-id="${childData.id
+        }">
+                            <option value="Activo" ${childData.estado === "Activo" ? "selected" : ""
+        }>Activo</option>
+        <option value="Suspendido" ${childData.estado === "Suspendido"
+          ? "selected"
+          : ""
+        }>Suspendido</option>
+      <option value="Expulsado" ${childData.estado === "Expulsado"
+          ? "selected"
+          : ""
+        }>Expulsado</option>
+    <option value="Reintegrado" ${childData.estado === "Reintegrado"
+          ? "selected"
+          : ""
+        }>Reintegrado</option>
+                        </select>
+                    </td>
+                    <td class="text-center width-auto">${childData.hora}</td>
+                    <td>
+                        <button class="btn btn-danger delete-user-button" data-id="${childData.id
+        }">Eliminar</button>
+                    </td>
+
+                </tr>
                 `;
       tabla.innerHTML += row;
     }
@@ -74,79 +85,69 @@ function mostrarDatos() {
     updatePagination(totalPages);
 
     deleteRow(database, collection);
+
   });
 }
 
 //-------------------------------------------------------------------------------------------------------------
 // Escuchar el evento submit del formulario modal
-document
-  .getElementById("registerForm")
-  .addEventListener("submit", function (event) {
-    event.preventDefault(); // Evita que se recargue la página
+document.getElementById("modalForm").addEventListener("submit", function (event) {
+  event.preventDefault(); // Evita que se recargue la página
 
-    // Obtener valores de los campos del formulario modal
-    const nombreInput = document.getElementById(
-      "validationCustomNombreModal"
-    ).value;
-    const cedulaInput = document.getElementById(
-      "validationCustomCedulaModal"
-    ).value;
-    const whatsappInput = document.getElementById(
-      "validationCustomWhatsappModal"
-    ).value;
-    const estadoInput = document.getElementById(
-      "validationCustomEstadoModal"
-    ).value;
+  // Obtener valores de los campos del formulario modal
+  const nombreInput = document.getElementById("validationCustomNombreModal").value;
+  const cedulaInput = document.getElementById("validationCustomCedulaModal").value;
+  const whatsappInput = document.getElementById("validationCustomWhatsappModal").value;
+  const estadoInput = document.getElementById("validationCustomEstadoModal").value;
 
-    // Verificar que los campos no estén vacíos
-    if (nombreInput.trim() !== "" && estadoInput.trim() !== "") {
-      // Obtener la fecha y hora actual en la zona horaria de Panamá
-      const now = new Date();
-      const options = { timeZone: "America/Panama" };
-      const formattedDateTime = now
-        .toLocaleString("es-PA", options)
-        .replace(/\./, "")
-        .replace(/T/, " ")
-        .replace(/\s([ap])\./, " $1.m.")
-        .replace(/(\d+)\/(\d+)\/(\d+),/, "$3-$1-$2,");
+  // Verificar que los campos no estén vacíos
+  if (nombreInput.trim() !== "" && estadoInput.trim() !== "") {
 
-      // Crear un nuevo objeto con los datos del formulario modal
-      const nuevoRegistro = {
-        nombre: nombreInput,
-        cedula: cedulaInput,
-        whatsapp: whatsappInput,
-        estado: estadoInput,
-        hora: formattedDateTime,
-      };
+    // Obtener la fecha y hora actual en la zona horaria de Panamá
+    const now = new Date();
+    const options = { timeZone: "America/Panama" };
+    const formattedDateTime = now
+      .toLocaleString("es-PA", options)
+      .replace(/\./, "")
+      .replace(/T/, " ")
+      .replace(/\s([ap])\./, " $1.m.")
+      .replace(/(\d+)\/(\d+)\/(\d+),/, "$3-$1-$2,")
 
-      // Obtener una referencia a la ubicación en la base de datos donde se guardarán los datos
-      const referenciaUnidades = ref(database, collection);
+    // Crear un nuevo objeto con los datos del formulario modal
+    const nuevoRegistro = {
+      nombre: nombreInput,
+      cedula: cedulaInput,
+      whatsapp: whatsappInput,
+      estado: estadoInput,
+      hora: formattedDateTime
+    };
 
-      // Agregar datos a la base de datos
-      push(referenciaUnidades, nuevoRegistro)
-        .then(() => {
-          // Limpiar los campos del formulario modal
-          document.getElementById("registerForm").reset();
-          // Cerrar el modal
-          const myModal = new bootstrap.Modal(
-            document.getElementById("myModal")
-          );
-          myModal.hide();
-          // Mostrar mensaje de éxito o recargar la página, según lo prefieras
-          alert("Registro exitoso");
-          // Recargar la página después de enviar el formulario (opcional)
-          setTimeout(() => {
-            location.reload();
-          }, 100);
-        })
-        .catch((error) => {
-          console.error("Error al enviar datos a la base de datos:", error);
-          alert("Error al enviar datos a la base de datos");
-        });
-    } else {
-      alert("Por favor completa todos los campos.");
-    }
-  });
+    // Obtener una referencia a la ubicación en la base de datos donde se guardarán los datos
+    const referenciaUnidades = ref(database, collection);
+
+    // Agregar datos a la base de datos
+    push(referenciaUnidades, nuevoRegistro)
+      .then(() => {
+        // Limpiar los campos del formulario modal
+        document.getElementById("modalForm").reset();
+        // Cerrar el modal
+        const myModal = new bootstrap.Modal(document.getElementById("myModal"));
+        myModal.hide();
+        // Mostrar mensaje de éxito o recargar la página, según lo prefieras
+        alert("Registro exitoso");
+        // Recargar la página después de enviar el formulario (opcional)
+        setTimeout(() => {
+          location.reload();
+        }, 100);
+      })
+      .catch((error) => {
+        console.error("Error al enviar datos a la base de datos:", error);
+        alert("Error al enviar datos a la base de datos");
+      });
+  } else {
+    alert("Por favor completa todos los campos.");
+  }
+});
 
 // Función para mostrar el modal
 function mostrarModal() {
@@ -160,10 +161,8 @@ function findAndSearch() {
   const input = document.getElementById("searchInput").value.toLowerCase();
   const rows = tabla.querySelectorAll("tr");
 
-  rows.forEach((row) => {
-    const nombre = row
-      .querySelector("td:nth-child(2)")
-      .textContent.toLowerCase();
+  rows.forEach(row => {
+    const nombre = row.querySelector("td:nth-child(2)").textContent.toLowerCase();
     if (nombre.includes(input)) {
       row.style.display = "";
     } else {
@@ -173,19 +172,15 @@ function findAndSearch() {
 }
 
 // Evento para ejecutar la búsqueda cuando se haga clic en el botón de búsqueda
-document
-  .getElementById("searchButton")
-  .addEventListener("click", findAndSearch);
+document.getElementById("searchButton").addEventListener("click", findAndSearch);
 
 // Evento para ejecutar la búsqueda cuando se presione Enter en el campo de entrada
-document
-  .getElementById("searchInput")
-  .addEventListener("keyup", function (event) {
-    if (event.key === "Enter") {
-      event.preventDefault();
-      findAndSearch();
-    }
-  });
+document.getElementById("searchInput").addEventListener("keyup", function (event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    findAndSearch();
+  }
+});
 
 //-----------------------------------------------------------------------------------------------------------
 // Función para actualizar la paginación
@@ -312,10 +307,11 @@ function downloadToExcel() {
     onValue(ref(database, collection), (snapshot) => {
       const data = [];
       snapshot.forEach((childSnapshot) => {
-        // Filtrar las columnas que deseas incluir en el archivo Excel
-        const { nombre, cedula, whatsapp, estado, hora } = childSnapshot.val();
-        data.push({ nombre, cedula, whatsapp, estado, hora });
-      });
+
+    // Filtrar las columnas que deseas incluir en el archivo Excel
+    const { nombre, cedula, whatsapp, estado, hora } = childSnapshot.val();
+    data.push({ nombre, cedula, whatsapp, estado, hora });
+  });
 
       // Convierte los datos a un formato compatible con Excel
       const worksheet = XLSX.utils.json_to_sheet(data);
